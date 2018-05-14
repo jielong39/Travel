@@ -66,7 +66,7 @@ export default{
 <style lang="stylus" scoped>
 @import '~styles/mixins.styl'
 	.title
-		light-height:.2rem
+		line-height:.6rem
 		background #eee
 		text-indent:.2rem
 		margin-top:.2rem
