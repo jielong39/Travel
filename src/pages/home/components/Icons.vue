@@ -1,12 +1,12 @@
 <template>
   <div class="icons">
-  	<swiper>
+  	<swiper :options="swiperOption">
   		<swiper-slide v-for="(page,index) of pages" :key="index">
   			<div class="icon" v-for="item of page" :key="item.id">
   				<div class="icon-img">
   					<img class='icon-img-content' :src="item.imgUrl">
   				</div>
-  				<p class="icon-desc">{{item.name}}</p>
+  				<p class="icon-desc">{{item.desc}}</p>
   			</div>
   		</swiper-slide>
 
@@ -18,66 +18,20 @@
 <script>
 	export default{
 		name:'HomeIcons',
-		data (){
+		props:{
+			list: Array
+		},
+		data() {
 			return {
-				items:[
-					{
-						id:'0001',
-						name:"景点门票",
-						imgUrl:"http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-					},
-					{
-						id:'0002',
-						name:"Q+精选",
-						imgUrl:"http://img1.qunarzz.com/piao/fusion/1804/ed/cf572be30fc32f02.png"
-					},
-					{
-						id:'0003',
-						name:"西湖",
-						imgUrl:"http://img1.qunarzz.com/piao/fusion/1803/17/99402a22ce4af302.png"
-					},
-					{
-						id:'0004',
-						name:"千岛湖",
-						imgUrl:"http://img1.qunarzz.com/piao/fusion/1803/75/eca3ce656c886502.png"
-					},
-					{
-						id:'0005',
-						name:"西溪湿地",
-						imgUrl:"http://img1.qunarzz.com/piao/fusion/1803/b8/c5dcdb58deec2402.png"
-					},
-					{
-						id:'0006',
-						name:"印象西湖",
-						imgUrl:"http://img1.qunarzz.com/piao/fusion/1803/17/99402a22ce4af302.png"
-					},
-					{
-						id:'0007',
-						name:"宋城千古情",
-						imgUrl:"http://img1.qunarzz.com/piao/fusion/1803/e3/67df61427c8e1302.png"
-					},
-					{
-						id:'0009',
-						name:"漂流",
-						imgUrl:"http://img1.qunarzz.com/piao/fusion/1803/75/eca3ce656c886502.png"
-					},
-					{
-						id:'0009',
-						name:"横店喜剧节",
-						imgUrl:"http://img1.qunarzz.com/piao/fusion/1803/8c/47630407f70e8302.png"
-					},
-					{
-						id:'0010',
-						name:"全部玩乐",
-						imgUrl:"http://img1.qunarzz.com/piao/fusion/1803/80/416c6ab3368d1f02.png"
-					},
-				]
+				swiperOption: {
+					autoplay: false
+				}
 			}
 		},
 		computed:{
 			pages(){
 				const pages=[]
-				this.items.forEach((item,index)=>{
+				this.list.forEach((item,index)=>{
 					const page = Math.floor(index/8)
 					if (!pages[page]){
 						pages[page] = []
