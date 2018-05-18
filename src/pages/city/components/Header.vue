@@ -30,6 +30,6 @@ export default {
 			left:0
 			with:.64rem
 			text-align:center
-			font-size:.4rem
-			color:#fff
+		  font-size:.4rem
+		  color:#fff
 </style>
