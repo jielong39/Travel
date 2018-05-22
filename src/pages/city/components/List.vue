@@ -28,7 +28,13 @@
 			>
 			<div class="title border-topbottom">{{key}}</div>
 			<div class="item-list">
-				<div class="item border-bottom" v-for="innerItem of item" :key="innerItem.id">{{innerItem.name}}</div>
+				<div class="item border-bottom" 
+				v-for="innerItem of item" 
+				:key="innerItem.id"  
+				@click="handleCityClick(innerItem.name)"
+				>
+					{{innerItem.name}}
+			</div>
 			</div>
 		</div>
 		</div>
@@ -44,9 +50,6 @@ export default {
 		cities:Object,
 		letter:String
 	},
-	mounted (){
-		this.scroll = new BScroll(this.$refs.wrapper)
-	},
 	watch: {
 		letter () {
 			if (this.letter){
@@ -56,10 +59,16 @@ export default {
 		},
 	},
 	methods: {
-		handleCityClick(city){
-			alert(city)
+		handleCityClick (city) {
+			this.$store.commit('changeCity',city)
+			this.$router.push('/')
 		}
-	}
+	},
+	mounted (){
+		this.scroll = new BScroll(this.$refs.wrapper,{
+			click: true
+		})
+	},
 }
 </script>
 
