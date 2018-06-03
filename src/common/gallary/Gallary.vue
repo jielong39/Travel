@@ -25,11 +25,10 @@ export default {
 	data () {
 		return {
 			swiperOptions: {
+				loop: true,
 				pagination:  {	
     			el: '.swiper-pagination',
     			type: 'fraction',
-    			observer:true,
-    			observeParents:true,
   			}
 			}
 		}
