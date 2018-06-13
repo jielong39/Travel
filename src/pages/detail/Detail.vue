@@ -2,7 +2,7 @@
 	<div>
 		<detail-banner :sightName="sightName"
 									 :bannerImg="bannerImg"
-									 :bannerImgs="gallaryImgs"
+									 :bannerImgs="bannerImgs"
 									 ></detail-banner>
 		<detail-header></detail-header>
 		<div class="content">
@@ -22,7 +22,7 @@ export default {
 		return {
 			sightName: '',
 			bannerImg: '',
-			gallaryImgs: '',
+			bannerImgs: '',
 			list: []
 		}
 	},
@@ -43,7 +43,7 @@ export default {
 				const data = res.data
 				this.sightName = data.sightName
 				this.bannerImg = data.bannerImg
-				this.gallaryImgs = data.gallaryImgs
+				this.bannerImgs = data.gallaryImgs
 				this.list = data.categoryList
 			}
 		}

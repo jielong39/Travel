@@ -15,24 +15,24 @@
 export default {
 	name: 'CommonGallary',
 	props: {
-		imgs: {
-			type: Array,
-			default () {
-				return []
-			}
-		}
+		imgs: Array
 	},
 	data () {
 		return {
 			swiperOptions: {
-				loop: true,
 				pagination:  {	
     			el: '.swiper-pagination',
     			type: 'fraction',
-  			}
+  			},
+  			observeParents: true,
+        observer: true
 			}
 		}
 	},
+	created () {
+
+	},
+
 	methods: {
 		handleGallaryClick () {
 			this.$emit('close')
@@ -49,7 +49,7 @@ export default {
 		display:flex
 		flex-direction:column
 		justify-content: center
-		z-index:5
+		z-index:99
 		position: fixed
 		top: 0
 		right: 0
